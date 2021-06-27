@@ -5,21 +5,33 @@ import SearchForm from './SearchForm'
 import '../home.css'
 import MovieCard from './MovieCard';
 import Navbar from './Navbar'
+import Profile from './Profile'
+import { withAuth0 } from "@auth0/auth0-react";
+import LoginButton from './LoginButton'
+import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
 import UpComingMovies from './UpComingMovies'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Home extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
             movieName: '',
             poster: false,
             searchMovie: [],
-            UpComingMoviesData: [],
-
+            mostPopularMoviesData:[]
         }
+    }
+
+    componentDidMount = async () => {
+        await axios.get(`${serverUrl}/moviesPopular`).then(response => {
+            this.setState({
+                mostPopularMoviesData: response.data,               
+            })
+        }).catch(error => alert(error))
     }
 
     getUpComingMovie = async (e) => {
@@ -27,10 +39,8 @@ export class Home extends Component {
         await axios.get(`${serverUrl}/moviesUpcoming`).then(response => {
             this.setState({
                 searchMovie: response.data,
-                UpComingMoviesData: response.data,
             })
             console.log('UP', this.state.searchMovie);
-            console.log('UP1111111', this.state.UpComingMoviesData);
 
         }).catch(error => alert(error))
     }
@@ -46,7 +56,6 @@ export class Home extends Component {
         await axios.get(`${serverUrl}/moviesPopular`).then(response => {
             this.setState({
                 searchMovie: response.data,
-
             })
             console.log('most', this.state.searchMovie);
 
@@ -73,11 +82,10 @@ export class Home extends Component {
             })
             console.log('most', response.data);
         }).catch(error => alert(error))
-
     }
-
+    
     render() {
-
+        const { isAuthenticated } = this.props.auth0;
 
         return (
 
@@ -91,24 +99,27 @@ export class Home extends Component {
                     getRatedMovie={this.getRatedMovie}
                     getUpComingMovie={this.getUpComingMovie}
                 />
-
-
+                {
+                    isAuthenticated ?
+                    <>
+                        <LogoutButton />
+                        <Profile/>
+                        </>
+                        :
+                        <LoginButton
+                        createUsers={this.createUsers}
+                        />
+                }
                 <SearchForm
                     getMovieName={this.getMovieName}
                     MovieSearchByName={this.MovieSearchByName}
                 />
-
-
                 < MovieCard
                     searchMovie={this.state.searchMovie}
                 />
                 <UpComingMovies
-                    UpComingMoviesData={this.state.UpComingMoviesData}
-                    getUpComingMovie={this.getUpComingMovie}
-
-
+                    mostPopularMoviesData={this.state.mostPopularMoviesData}
                 />
-
                 <Footer />
 
             </div>
@@ -116,5 +127,4 @@ export class Home extends Component {
     }
 }
 
-
-export default (Home);
+export default withAuth0(Home);

@@ -6,7 +6,7 @@ export class UpComingMovies extends Component {
     render() {
         return (
             <div>
-                {this.props.UpComingMoviesData.map(item => {
+                {this.props.mostPopularMoviesData.map(item => {
 
                     return (<Card style={{ width: '18rem' }}>
                         <Card.Body>
