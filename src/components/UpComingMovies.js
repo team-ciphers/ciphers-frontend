@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
-
+import CardColumns from 'react-bootstrap/CardColumns'
 
 export class UpComingMovies extends Component {
     render() {
         return (
             <div>
-                {this.props.mostPopularMoviesData.map(item => {
+                <CardColumns CardColumns style={{ display: "flex", flexWrap: "wrap" }}>
+                {this.props.searchMovie.map(item => {
 
                     return (<Card style={{ width: '18rem' }}>
                         <Card.Body>
@@ -19,6 +20,7 @@ export class UpComingMovies extends Component {
 
                 )}
                 {console.log( this.props.searchMovie)};
+                </CardColumns>
             </div>
         )
     }
