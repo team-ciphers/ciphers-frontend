@@ -4,6 +4,7 @@ import Footer from './Footer'
 import axios from 'axios'
 import SearchForm from './SearchForm'
 
+
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Home extends Component {
