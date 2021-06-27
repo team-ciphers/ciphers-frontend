@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 
-export class MovieCard extends Component {
+
+export class UpComingMovies extends Component {
     render() {
         return (
             <div>
-                {this.props.searchMovie.map(item => {
+                {this.props.UpComingMoviesData.map(item => {
 
                     return (<Card style={{ width: '18rem' }}>
                         <Card.Body>
@@ -23,4 +24,4 @@ export class MovieCard extends Component {
     }
 }
 
-export default MovieCard
+export default UpComingMovies
