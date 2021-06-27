@@ -12,6 +12,7 @@ import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
 import UpComingMovies from './UpComingMovies'
 
+
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Home extends Component {
@@ -22,14 +23,17 @@ export class Home extends Component {
             movieName: '',
             poster: false,
             searchMovie: [],
-            mostPopularMoviesData:[]
+            mostPopularMoviesData:[],
+          
+            
         }
     }
+
 
     componentDidMount = async () => {
         await axios.get(`${serverUrl}/moviesPopular`).then(response => {
             this.setState({
-                mostPopularMoviesData: response.data,               
+                searchMovie: response.data,               
             })
         }).catch(error => alert(error))
     }
@@ -92,7 +96,7 @@ export class Home extends Component {
 
             <div>
                 <Navbar />
-
+            
                 <HomeNavbar
                     componentDidMount={this.componentDidMount}
                     getPopularMovie={this.getPopularMovie}
@@ -114,12 +118,15 @@ export class Home extends Component {
                     getMovieName={this.getMovieName}
                     MovieSearchByName={this.MovieSearchByName}
                 />
+                 {/* <UpComingMovies
+                    mostPopularMoviesData={this.state.mostPopularMoviesData}
+                /> */}
                 < MovieCard
                     searchMovie={this.state.searchMovie}
+                  
                 />
-                <UpComingMovies
-                    mostPopularMoviesData={this.state.mostPopularMoviesData}
-                />
+              
+               
                 <Footer />
 
             </div>
