@@ -13,8 +13,8 @@
 .btn:hover {
     padding: 8px 20px;
     transition: all 0.3s ease-out;
-    background: #8109535d;
-    color : #0d2f3f5d;
+    background: #7e0b525d;
+    color : #d7e1e65d;
     transition:250ms;
 }
 .btn--primary{

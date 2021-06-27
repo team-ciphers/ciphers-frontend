@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios'
 import SearchForm from './SearchForm'
@@ -7,12 +6,11 @@ import '../home.css'
 import MovieCard from './MovieCard';
 import Navbar from './Navbar'
 import Profile from './Profile'
-
-import { useAuth0 } from "@auth0/auth0-react";
-
 import { withAuth0 } from "@auth0/auth0-react";
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
+import HomeNavbar from './HomeNavbar'
+import UpComingMovies from './UpComingMovies'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -24,26 +22,26 @@ export class Home extends Component {
             movieName: '',
             poster: false,
             searchMovie: [],
+            mostPopularMoviesData:[]
         }
     }
 
     componentDidMount = async () => {
-
         await axios.get(`${serverUrl}/moviesPopular`).then(response => {
             this.setState({
-                mostPopularMoviesData: response.data,
+                mostPopularMoviesData: response.data,               
+            })
+        }).catch(error => alert(error))
+    }
 
-            })
-        }).catch(error => alert(error))
-        await axios.get(`${serverUrl}/moviesRated`).then(response => {
-            this.setState({
-                topRatedMoviesData: response.data,
-            })
-        }).catch(error => alert(error))
+    getUpComingMovie = async (e) => {
+        e.preventDefault();
         await axios.get(`${serverUrl}/moviesUpcoming`).then(response => {
             this.setState({
-                upComingMoviesData: response.data,
+                searchMovie: response.data,
             })
+            console.log('UP', this.state.searchMovie);
+
         }).catch(error => alert(error))
     }
 
@@ -51,6 +49,29 @@ export class Home extends Component {
         this.setState({
             movieName: e.target.value,
         })
+    }
+
+    getPopularMovie = async (e) => {
+        e.preventDefault();
+        await axios.get(`${serverUrl}/moviesPopular`).then(response => {
+            this.setState({
+                searchMovie: response.data,
+            })
+            console.log('most', this.state.searchMovie);
+
+        }).catch(error => alert(error))
+    }
+
+
+    getRatedMovie = async (e) => {
+        e.preventDefault();
+        await axios.get(`${serverUrl}/moviesRated`).then(response => {
+            this.setState({
+                searchMovie: response.data,
+            })
+            console.log('Rated', this.state.searchMovie);
+        }).catch(error => alert(error))
+
     }
 
     MovieSearchByName = async (e) => {
@@ -67,14 +88,17 @@ export class Home extends Component {
         const { isAuthenticated } = this.props.auth0;
 
         return (
+
+
             <div>
-                {/* <Header /> */}
                 <Navbar />
 
-                {this.state.searchMovie.map(() => {
-                    return <MovieCard />;
-                })}
-
+                <HomeNavbar
+                    componentDidMount={this.componentDidMount}
+                    getPopularMovie={this.getPopularMovie}
+                    getRatedMovie={this.getRatedMovie}
+                    getUpComingMovie={this.getUpComingMovie}
+                />
                 {
                     isAuthenticated ?
                     <>
@@ -89,6 +113,12 @@ export class Home extends Component {
                 <SearchForm
                     getMovieName={this.getMovieName}
                     MovieSearchByName={this.MovieSearchByName}
+                />
+                < MovieCard
+                    searchMovie={this.state.searchMovie}
+                />
+                <UpComingMovies
+                    mostPopularMoviesData={this.state.mostPopularMoviesData}
                 />
                 <Footer />
 
