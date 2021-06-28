@@ -7,8 +7,7 @@ import MovieCard from './MovieCard';
 import Navbar from './Navbar'
 import Profile from './Profile'
 import { withAuth0 } from "@auth0/auth0-react";
-import LoginButton from './LoginButton'
-import LogoutButton from './LogoutButton'
+
 import HomeNavbar from './HomeNavbar'
 import './Home.css'
 
@@ -23,7 +22,8 @@ export class Home extends Component {
             poster: false,
             searchMovie: [],
             mostPopularMoviesData: [],
-
+            // email: this.props.auth0.user.email,
+           
 
         }
     }
@@ -34,6 +34,7 @@ export class Home extends Component {
             this.setState({
                 searchMovie: response.data,
             })
+            console.log('email', this.state.email)
         }).catch(error => alert(error))
     }
 
@@ -86,9 +87,9 @@ export class Home extends Component {
             console.log('most', response.data);
         }).catch(error => alert(error))
     }
-
+ 
     render() {
-        const { isAuthenticated } = this.props.auth0;
+       
 
         return (
 
@@ -110,7 +111,7 @@ export class Home extends Component {
 
                 < MovieCard
                     searchMovie={this.state.searchMovie}
-
+                  
                 />
 
 
