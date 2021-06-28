@@ -23,18 +23,29 @@ export class MovieCard extends Component {
     handleClose = () => this.setState({ show: false });
     handleShow = async (original_title, overview, release_date, vote_average, poster_path, id) => {
 
-        // await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${id}`).then(response => {
-        this.setState({
-            // reviews: response.data,
-            show: !this.state.show,
-            original_title: original_title,
-            poster_path: poster_path,
-            vote_average: vote_average,
-            overview: overview,
-            release_date: release_date
-        })
-        // console.log(response.data);
-        // }).catch(error => error.message);
+        await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${id}`).then(response => {
+            console.log(id)
+            this.setState({
+                reviews: response.data,
+                show: !this.state.show,
+                original_title: original_title,
+                poster_path: poster_path,
+                vote_average: vote_average,
+                overview: overview,
+                release_date: release_date
+            })
+            // console.log(response.data);
+        }).catch(error => {
+            console.log(id)
+            this.setState({
+                show: !this.state.show,
+                original_title: original_title,
+                poster_path: poster_path,
+                vote_average: vote_average,
+                overview: overview,
+                release_date: release_date
+            })
+        });
         // console.log('title', this.state.original_title);
     };
     render() {
@@ -53,14 +64,15 @@ export class MovieCard extends Component {
 
                 <Row xs={1} md={3} className="g-4">
                     {this.props.searchMovie.map(item => {
-                        return (<Col>
-                            <Card onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.id)}>
-                                <Card.Body>
-                                    <Card.Img variant="top" src={item.poster_path} />
-                                    <Card.Title style={{ fontSize: '30px' }}>{item.original_title}</Card.Title>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        return (
+                            <Col>
+                                <Card onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.id)}>
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={item.poster_path} />
+                                        <Card.Title style={{ fontSize: '30px' }}>{item.original_title}</Card.Title>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         )
                     })}
                 </Row>
