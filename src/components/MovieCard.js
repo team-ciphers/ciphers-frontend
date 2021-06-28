@@ -49,7 +49,7 @@ export class MovieCard extends Component {
                 movieId: movieId
             })
         });
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/movieTrailer?movieId=${movieId}`).then(response => {
+        await axios.get(`${process.env.REACT_APP_SERVER_URL}/movieTrailer?movieId=${movieId}`).then(response => {
             console.log('cvbnm,', response.data);
             this.setState({
                 url: response.data,

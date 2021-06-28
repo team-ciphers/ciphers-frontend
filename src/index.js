@@ -13,7 +13,6 @@ import AboutUs from './components/AboutUs';
 // } from "react-router-dom";
 import Home from './components/Home';
 import Profile from './components/Profile';
-import AboutUs from './components/AboutUs';
 
 ReactDOM.render(
   <Auth0Provider
