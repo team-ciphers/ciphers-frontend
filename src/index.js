@@ -14,8 +14,6 @@ import AboutUs from './components/AboutUs';
 import Home from './components/Home';
 import Profile from './components/Profile';
 
-
-
 ReactDOM.render(
   <Auth0Provider
     domain={process.env.REACT_APP_DOMAIN}
@@ -27,10 +25,10 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact render={props => <Home {...props} />} />
         <Route path="/Profile" exact render={props => <Profile {...props} />} />
-        <Route path="/Aboutus" exact render={props => <AboutUs {...props} />} />
+        <Route path="/AboutUs" exact render={props => <AboutUs {...props} />} />
         <Redirect to="/" />
       </Switch>
-    </BrowserRouter>,
+    </BrowserRouter>
   </Auth0Provider>,
   document.getElementById('root')
 );
