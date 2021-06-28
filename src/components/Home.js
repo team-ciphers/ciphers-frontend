@@ -12,7 +12,6 @@ import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
 import './Home.css'
 
-
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Home extends Component {
