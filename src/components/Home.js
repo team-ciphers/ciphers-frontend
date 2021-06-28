@@ -11,7 +11,6 @@ import { withAuth0 } from "@auth0/auth0-react";
 import HomeNavbar from './HomeNavbar'
 import './Home.css'
 
-
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Home extends Component {

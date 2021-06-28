@@ -75,7 +75,6 @@ export class MovieCard extends Component {
                     url={this.state.url}
 
                 />
-
                 <Row xs={1} md={3} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
@@ -89,7 +88,6 @@ export class MovieCard extends Component {
                         )
                     })}
                 </Row>
-
             </div >
         )
     }
