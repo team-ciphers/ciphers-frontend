@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-// import { Nav } from 'react-bootstrap';
 import { menuItems } from './MenuItems';
 import './Navbar.css'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
+import AboutUs from './AboutUs';
+import Nav from 'react-bootstrap/Nav'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
+import './HomeNavbar.css'
+
 
 
 class Navbar extends Component {
@@ -40,6 +46,7 @@ class Navbar extends Component {
                     }
 
                 </ul>
+
                 {
                     isAuthenticated ?
                         <>
@@ -51,7 +58,7 @@ class Navbar extends Component {
                             createUsers={this.createUsers}
                         />
                 }
-
+                
             </nav>
 
         )

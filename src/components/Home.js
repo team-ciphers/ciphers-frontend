@@ -11,7 +11,9 @@ import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
 import './Home.css'
-
+import { LinkContainer } from 'react-router-bootstrap'
+import AboutUs from './AboutUs'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -95,8 +97,10 @@ export class Home extends Component {
 
 
             <div className="homePage">
-                <Navbar />
 
+
+                <Navbar />
+               
                 <HomeNavbar
                     componentDidMount={this.componentDidMount}
                     getPopularMovie={this.getPopularMovie}
@@ -113,8 +117,6 @@ export class Home extends Component {
                     searchMovie={this.state.searchMovie}
 
                 />
-
-
                 <Footer />
 
             </div>
