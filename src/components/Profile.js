@@ -3,33 +3,49 @@ import { withAuth0 } from "@auth0/auth0-react";
 import axios from 'axios'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import ProfileNavBar from './ProfileNavBar'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Profile extends Component {
-    componentDidMount = async () => {
-        const reqBody = {
-            email: this.props.auth0.user.email
-        }
-        axios.post(`${serverUrl}/users`, reqBody)
-    }
+    constructor(props){
+        super(props);
+        this.state={
+            movieList:[]
 
-    getToWatchList = async (e) => {
-        e.preventDefault();
-        await axios.get(`${serverUrl}/moviesRated`).then(response => {
+        }
+    }
+    componentDidMount = async () => {
+        axios.post(`${serverUrl}/users?email=${this.props.auth0.user.email}`).then(response => {
             this.setState({
-                searchMovie: response.data,
+                movieList: response.data.to_watch              
             })
-            console.log('Rated', this.state.searchMovie);
         }).catch(error => alert(error))
     }
-
-
-
+    getFavMovies = async (e) => {
+        e.preventDefault();
+        await axios.get(`${serverUrl}/users?email=${this.props.auth0.user.email}`).then(response => {
+            this.setState({
+                movieList: response.data.favMovie
+            })
+        }).catch(error => alert(error))
+    }
+    getToWatchList = async (e) => {
+        e.preventDefault();
+        await axios.get(`${serverUrl}/users?email=${this.props.auth0.user.email}`).then(response => {
+            this.setState({
+                movieList: response.data.to_watch
+            })
+        }).catch(error => alert(error))
+    }
     render() {
         return (
             <div>
                 <Navbar />
+                <ProfileNavBar
+                getFavMovies={this.getFavMovies}
+                getToWatchList={this.getToWatchList}
+                />
                 <Footer />
             </div>
         )

@@ -13,8 +13,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from './components/Home';
 import Profile from './components/Profile';
 
-
-
 ReactDOM.render(
   <Auth0Provider
     domain={process.env.REACT_APP_DOMAIN}
@@ -29,7 +27,7 @@ ReactDOM.render(
         {/* <Route path="/Aboutus" exact render={props => <Profile {...props} />} /> */}
         <Redirect to="/" />
       </Switch>
-    </BrowserRouter>,
+    </BrowserRouter>
   </Auth0Provider>,
   document.getElementById('root')
 );
