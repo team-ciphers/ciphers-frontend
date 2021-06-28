@@ -1,11 +1,12 @@
 .NavbarItems{
-    background: linear-gradient(90deg, rgb(110,94,254) 0% rgba(73,63,253,1) 100%);
     height:80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    background-color: #BBDFC8;
+   
+    position: relative;
+    bottom: 59rem;
 }
 
 .navbar-logo {
@@ -26,16 +27,18 @@ cursor: pointer;
 
 }
 .nav-links{
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
+    padding-bottom: 1rem;
 }
 .nav-links:hover {
     transition: all 0.3s ease-out;
-    background: #7e0b525d;
-    color: white;
+    background: #da0000;
+    color: #000000;
     transition:250ms;
     border-radius: 4px;
+    
 
 }
 .nav-links-mobile{
