@@ -56,7 +56,7 @@ export class MovieCard extends Component {
 
             })
 
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
 
     };
     render() {

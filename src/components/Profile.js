@@ -22,7 +22,7 @@ export class Profile extends Component {
             this.setState({
                 movieList: response.data[0].to_watch
             })
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
     getFavMovies = async (e) => {
         e.preventDefault();
@@ -30,7 +30,7 @@ export class Profile extends Component {
             this.setState({
                 movieList: response.data[0].favMovie
             })
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
     getToWatchList = async (e) => {
         e.preventDefault();
@@ -39,7 +39,7 @@ export class Profile extends Component {
             this.setState({
                 movieList: response.data[0].to_watch
             })
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
     render() {
         return (
