@@ -5,17 +5,7 @@ import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
-<<<<<<< HEAD
-import AboutUs from './AboutUs';
-import Nav from 'react-bootstrap/Nav'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap'
-import './HomeNavbar.css'
-
-=======
-import { Link } from 'react-router-dom';
->>>>>>> 831543b9cc18a2cdbd2e99bd170170505880fd79
 
 
 class Navbar extends Component {
@@ -44,15 +34,6 @@ class Navbar extends Component {
                         )
                     })
                     }
-<<<<<<< HEAD
-
-
-                    )
-                    }
-
-                </ul>
-
-=======
                 </ul> */}
                 {
                     <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
@@ -61,7 +42,6 @@ class Navbar extends Component {
                         <Link className='nav-links' to='/aboutus'>ABOUT US</Link>
                     </ul>
                 }
->>>>>>> 831543b9cc18a2cdbd2e99bd170170505880fd79
                 {
                     isAuthenticated ?
                         <>
