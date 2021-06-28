@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    background-color: yellow;
+    background-color: #BBDFC8;
 }
 
 .navbar-logo {
@@ -30,10 +30,12 @@ cursor: pointer;
     text-decoration: none;
     padding: .5rem 1rem;
 }
-nav-links:hover {
-    background-color: #4b0639;
+.nav-links:hover {
+    transition: all 0.3s ease-out;
+    background: #7e0b525d;
+    color: white;
+    transition:250ms;
     border-radius: 4px;
-    transition:all 0.2s ease-out  ;
 
 }
 .nav-links-mobile{
