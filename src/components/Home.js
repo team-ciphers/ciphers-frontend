@@ -29,7 +29,7 @@ export class Home extends Component {
     componentDidMount = async () => {
         await axios.get(`${serverUrl}/moviesPopular`).then(response => {
             this.setState({
-                mostPopularMoviesData: response.data,               
+                searchMovie: response.data,               
             })
         }).catch(error => alert(error))
     }
