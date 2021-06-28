@@ -14,10 +14,7 @@ export class App extends Component {
     // const { isAuthenticated } = this.props.auth0;
     return (
       <div>
-        <Home
-
-        />
-      
+        <Home/>
       </div>
     )
   }

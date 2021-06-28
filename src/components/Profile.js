@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from 'axios'
+import Navbar from './Navbar'
+import Footer from './Footer'
+
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export class Profile extends Component {
@@ -8,15 +11,26 @@ export class Profile extends Component {
         const reqBody = {
             email: this.props.auth0.user.email
         }
-        console.log(this.props.auth0.user.email);
         axios.post(`${serverUrl}/users`, reqBody)
-        console.log('ba3ed');
     }
+
+    getToWatchList = async (e) => {
+        e.preventDefault();
+        await axios.get(`${serverUrl}/moviesRated`).then(response => {
+            this.setState({
+                searchMovie: response.data,
+            })
+            console.log('Rated', this.state.searchMovie);
+        }).catch(error => alert(error))
+    }
+
+
 
     render() {
         return (
             <div>
-
+                <Navbar />
+                <Footer />
             </div>
         )
     }
