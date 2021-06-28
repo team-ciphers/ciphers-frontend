@@ -35,7 +35,7 @@ export class Home extends Component {
                 searchMovie: response.data,
             })
             console.log('email', this.state.email)
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
 
     getUpComingMovie = async (e) => {
@@ -46,7 +46,7 @@ export class Home extends Component {
             })
             console.log('UP', this.state.searchMovie);
 
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
 
     getMovieName = (e) => {
@@ -63,7 +63,7 @@ export class Home extends Component {
             })
             console.log('most', this.state.searchMovie);
 
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
 
 
@@ -74,7 +74,7 @@ export class Home extends Component {
                 searchMovie: response.data,
             })
             console.log('Rated', this.state.searchMovie);
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
 
     }
 
@@ -85,7 +85,7 @@ export class Home extends Component {
                 searchMovie: response.data,
             })
             console.log('most', response.data);
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
  
     render() {
