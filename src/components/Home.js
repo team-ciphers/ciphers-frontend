@@ -10,7 +10,8 @@ import { withAuth0 } from "@auth0/auth0-react";
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
-import UpComingMovies from './UpComingMovies'
+import './Home.css'
+
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -22,14 +23,17 @@ export class Home extends Component {
             movieName: '',
             poster: false,
             searchMovie: [],
-            mostPopularMoviesData:[]
+            mostPopularMoviesData: [],
+
+
         }
     }
+
 
     componentDidMount = async () => {
         await axios.get(`${serverUrl}/moviesPopular`).then(response => {
             this.setState({
-                searchMovie: response.data,               
+                searchMovie: response.data,
             })
         }).catch(error => alert(error))
     }
@@ -83,14 +87,14 @@ export class Home extends Component {
             console.log('most', response.data);
         }).catch(error => alert(error))
     }
-    
+
     render() {
         const { isAuthenticated } = this.props.auth0;
 
         return (
 
 
-            <div>
+            <div className="homePage">
                 <Navbar />
 
                 <HomeNavbar
@@ -99,27 +103,18 @@ export class Home extends Component {
                     getRatedMovie={this.getRatedMovie}
                     getUpComingMovie={this.getUpComingMovie}
                 />
-                {
-                    isAuthenticated ?
-                    <>
-                        <LogoutButton />
-                        <Profile/>
-                        </>
-                        :
-                        <LoginButton
-                        createUsers={this.createUsers}
-                        />
-                }
+                <br />
                 <SearchForm
                     getMovieName={this.getMovieName}
                     MovieSearchByName={this.MovieSearchByName}
                 />
+
                 < MovieCard
                     searchMovie={this.state.searchMovie}
+
                 />
-                <UpComingMovies
-                    mostPopularMoviesData={this.state.mostPopularMoviesData}
-                />
+
+
                 <Footer />
 
             </div>

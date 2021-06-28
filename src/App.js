@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Home from './components/Home'
 import { withAuth0 } from "@auth0/auth0-react";
+import './App.css'
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -13,8 +14,8 @@ export class App extends Component {
     // const { isAuthenticated } = this.props.auth0;
     return (
       <div>
-        <Home 
-        
+        <Home
+
         />
       </div>
     )
