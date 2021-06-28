@@ -10,6 +10,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import HomeNavbar from './HomeNavbar'
+import Curosel from "./Curosel"
 import './Home.css'
 
 
@@ -95,8 +96,8 @@ export class Home extends Component {
 
 
             <div className="homePage">
+                <Curosel />
                 <Navbar />
-
                 <HomeNavbar
                     componentDidMount={this.componentDidMount}
                     getPopularMovie={this.getPopularMovie}

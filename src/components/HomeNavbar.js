@@ -12,20 +12,22 @@ export class HomeNavbar extends Component {
 
     render() {
         return (
-            <div className="homeNavbar">
-                <>
-                    <Navbar>
-                        <Container>
-                            <Nav className="me-auto">
-                                <Nav.Link onClick={this.props.getPopularMovie} >Popular Movies</Nav.Link>
-                                <Nav.Link onClick={this.props.getUpComingMovie} >Up Coming</Nav.Link>
-                                <Nav.Link onClick={this.props.getRatedMovie} >Top Rated Movies</Nav.Link>
-                            </Nav>
-                        </Container>
-                    </Navbar>
-                    <br />
+            <div >
 
-                </>
+                <Navbar className="homeNavbar">
+                    <Container>
+                        <Nav style={{ color: "white" }} className="me-auto">
+                            <Nav.Link className="me-auto-to" style={{ color: "white" }} onClick={this.props.getPopularMovie} >Popular Movies</Nav.Link>
+                            <Nav.Link style={{ color: "white" }}> | </Nav.Link>
+                            <Nav.Link className="me-auto-to" style={{ color: "white" }} onClick={this.props.getUpComingMovie} > Up Coming </ Nav.Link>
+                            <Nav.Link style={{ color: "white" }}> | </Nav.Link>
+                            <Nav.Link className="me-auto-to" style={{ color: "white" }} onClick={this.props.getRatedMovie} > Top Rated Movies</Nav.Link>
+                        </Nav>
+                    </Container>
+                </Navbar>
+                <br />
+
+
             </div>
         )
     }

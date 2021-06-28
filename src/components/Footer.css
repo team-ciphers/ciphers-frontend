@@ -1,0 +1,25 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+.main-footer{
+  color: #ffffff;
+  background-color: #444444;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+
+}
+
+.main-footer .col:hover{
+  color: red;
+  transition: .5s;
+}
+
+.col-sm:hover{
+  color: red;
+  transition: .5s;
+}
+.main-footer .col{
+  text-align: left;
+  margin-left: 200px;
+}
