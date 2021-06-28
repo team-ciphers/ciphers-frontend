@@ -22,20 +22,26 @@ export class MovieCard extends Component {
 
     handleClose = () => this.setState({ show: false });
     handleShow = async (original_title, overview, release_date, vote_average, poster_path, id) => {
-
-        // await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${id}`).then(response => {
-        this.setState({
-            // reviews: response.data,
-            show: !this.state.show,
-            original_title: original_title,
-            poster_path: poster_path,
-            vote_average: vote_average,
-            overview: overview,
-            release_date: release_date
-        })
-        // console.log(response.data);
-        // }).catch(error => error.message);
-        // console.log('title', this.state.original_title);
+        await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${id}`).then(response => {
+            this.setState({
+                reviews: response.data,
+                show: !this.state.show,
+                original_title: original_title,
+                poster_path: poster_path,
+                vote_average: vote_average,
+                overview: overview,
+                release_date: release_date
+            })
+        }).catch(error => {
+            this.setState({
+                show: !this.state.show,
+                original_title: original_title,
+                poster_path: poster_path,
+                vote_average: vote_average,
+                overview: overview,
+                release_date: release_date
+            })
+        });
     };
     render() {
         return (
@@ -50,7 +56,6 @@ export class MovieCard extends Component {
                     release_date={this.state.release_date}
                     reviews={this.state.reviews}
                 />
-
                 <Row xs={1} md={3} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
@@ -64,7 +69,6 @@ export class MovieCard extends Component {
                         )
                     })}
                 </Row>
-
             </div >
         )
     }
