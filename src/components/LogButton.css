@@ -1,5 +1,6 @@
 :root{
-    --primary:#c7a9ca;
+    --primary:#da0000;
+    
 
 }
 
@@ -9,12 +10,15 @@
     border-radius: 4px;
     outline: none;
     cursor: pointer;
+    color: white;
+    margin-bottom: 10px;
+    z-index: 2;
 }
 .btn:hover {
     padding: 8px 20px;
     transition: all 0.3s ease-out;
-    background: #7e0b525d;
-    color: white;
+    background: #171717;
+    color: #DA0037;
     transition:250ms;
 }
 .btn--primary{

@@ -1,0 +1,33 @@
+.my-card{
+  border:1px solid rgb(255, 0, 0);
+  background-size: cover;
+  height: 632px;
+}
+.my-img{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 630px;
+}
+.my-title{
+  padding: 16px;
+ font-size: 20px;
+ color:#ffffff; 
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ /* height: 100px; */
+ position: relative;
+ bottom: 100px;
+
+ /* -webkit-text-stroke:0.5px rgb(255, 255, 255); */
+ background-color: rgba(0, 0, 0, 0.548);
+ padding-bottom: 60px;
+}
+.my-title:hover{
+  font-size: 25px;
+  padding-bottom: 255px;
+  position: relative;
+ bottom: 300px;
+ transition: 0.5s;
+ color: red;
+ background-color: rgba(0, 0, 0, 0.8);
+}

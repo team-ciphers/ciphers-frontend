@@ -72,17 +72,19 @@ export class MovieCard extends Component {
                     release_date={this.state.release_date}
                     reviews={this.state.reviews}
                     movieId={this.state.movieId}
-                    url={this.state.url}
+                    url={this.state.url} />
 
-                />
-                <Row xs={1} md={3} className="g-4">
+                <Row xs={1} md={4} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
-                            <Card onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.movieId)} >
-                                <Card.Body >
-                                    <Card.Img variant="top" src={item.poster_path} />
-                                    <Card.Title style={{ fontSize: '30px' }}>{item.original_title}</Card.Title>
+                            <Card className="my-card" onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.id)}>
+                                <Card.Body style={{ padding: "0px" }}>
+                                    <Card.Img
+                                        className="my-img" variant="top" src={item.poster_path} />
+
                                 </Card.Body>
+                                <Card.Title className="my-title">{item.original_title}</Card.Title>
+
                             </Card>
                         </Col>
                         )
