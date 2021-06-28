@@ -7,12 +7,10 @@ import MovieCard from './MovieCard';
 import Navbar from './Navbar'
 import Profile from './Profile'
 import { withAuth0 } from "@auth0/auth0-react";
-import LoginButton from './LoginButton'
-import LogoutButton from './LogoutButton'
+
 import HomeNavbar from './HomeNavbar'
 import Curosel from "./Curosel"
 import './Home.css'
-
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -25,7 +23,8 @@ export class Home extends Component {
             poster: false,
             searchMovie: [],
             mostPopularMoviesData: [],
-
+            // email: this.props.auth0.user.email,
+           
 
         }
     }
@@ -36,7 +35,8 @@ export class Home extends Component {
             this.setState({
                 searchMovie: response.data,
             })
-        }).catch(error => alert(error))
+            console.log('email', this.state.email)
+        }).catch(error => console.log(error))
     }
 
     getUpComingMovie = async (e) => {
@@ -47,7 +47,7 @@ export class Home extends Component {
             })
             console.log('UP', this.state.searchMovie);
 
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
 
     getMovieName = (e) => {
@@ -64,7 +64,7 @@ export class Home extends Component {
             })
             console.log('most', this.state.searchMovie);
 
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
 
 
@@ -75,7 +75,7 @@ export class Home extends Component {
                 searchMovie: response.data,
             })
             console.log('Rated', this.state.searchMovie);
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
 
     }
 
@@ -86,11 +86,11 @@ export class Home extends Component {
                 searchMovie: response.data,
             })
             console.log('most', response.data);
-        }).catch(error => alert(error))
+        }).catch(error => console.log(error))
     }
-
+ 
     render() {
-        const { isAuthenticated } = this.props.auth0;
+       
 
         return (
 
@@ -112,7 +112,7 @@ export class Home extends Component {
 
                 < MovieCard
                     searchMovie={this.state.searchMovie}
-
+                  
                 />
 
 
