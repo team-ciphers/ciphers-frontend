@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import AboutUs from './components/AboutUs';
 
 // import {
 //   BrowserRouter as Router,
@@ -12,7 +13,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 // } from "react-router-dom";
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Aboutus from './components/Aboutus';
+import AboutUs from './components/AboutUs';
 
 ReactDOM.render(
   <Auth0Provider
@@ -25,7 +26,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact render={props => <Home {...props} />} />
         <Route path="/Profile" exact render={props => <Profile {...props} />} />
-        <Route path="/Aboutus" exact render={props => <Aboutus {...props} />} />
+        <Route path="/AboutUs" exact render={props => <AboutUs {...props} />} />
         <Redirect to="/" />
       </Switch>
     </BrowserRouter>
