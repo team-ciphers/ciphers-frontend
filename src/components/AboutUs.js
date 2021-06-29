@@ -22,6 +22,7 @@ export class AboutUs extends Component {
 
                 <Navbar />
 
+
                 <div style={{ display: "flex", flexWrap: "wrap",justifyContent:"center",marginBottom:'20px' }}>
                     {this.state.aboutus.map(((item) => {
                         return (
@@ -32,10 +33,10 @@ export class AboutUs extends Component {
                                         </Card.Body>
                                         <Card.Title className="cardText">{item.name}</Card.Title>
                                         <Card.Text className="cardText">
-                                            {/* <a className="a" href={item.github} >< FaGithub></FaGithub></a> */}
+                                           
                                             <a href={item.github} class="btn ">< FaGithub><i class="fab fa-github"></i></FaGithub> Github</a>
                                             <a href={item.linkedIn} class="btn ">< FaLinkedin><i class="fab fa-github"></i> </FaLinkedin> LinkedIn</a>
-                                            {/* <a href={item.linkedIn} > < FaLinkedin></FaLinkedin></a> */}
+                                          
                                             <Card.Footer>
                                             <small className="text-muted cardText" style={{color:'#FF616D'}}>{item.title}</small>
                                         </Card.Footer>
