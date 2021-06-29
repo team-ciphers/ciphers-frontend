@@ -109,6 +109,7 @@ export class ModalMovie extends Component {
                             <div style={{ float: 'right' }}>
                                 <Button onClick={(e) => this.addFavorite(e)} variant="secondary">Add To Favorite</Button>
                                 <Button onClick={(e) => this.addToWatch(e)} variant="secondary">Add To Watch List</Button>
+                                
                             </div>
                         }
 
