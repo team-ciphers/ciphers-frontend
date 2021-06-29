@@ -1,12 +1,16 @@
+
 .NavbarItems{
     height:80px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-   
-    position: relative;
+    width: 100%;
+    position: fixed;
+    top: 0;
     bottom: 59rem;
+    background-color: black;
+    z-index: 10;
 }
 
 .navbar-logo {
