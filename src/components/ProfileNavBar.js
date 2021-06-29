@@ -41,8 +41,8 @@ export class ProfileNavBar extends Component {
                   </UncontrolledDropdown> */}
                         <Container>
                             <Nav className="me-auto">
-                                <Nav.Link onClick={this.props.getToWatchList} >To Watch List</Nav.Link>
                                 <Nav.Link onClick={this.props.getFavMovies} >Favorite Movies</Nav.Link>
+                                <Nav.Link onClick={this.props.getToWatchList} >To Watch List</Nav.Link>
                             </Nav>
                         </Container>
                     </Navbar>
