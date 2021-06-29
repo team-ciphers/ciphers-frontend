@@ -44,6 +44,7 @@ export class Profile extends Component {
     render() {
         return (
             <>
+            <br /> <br /> <br /> <br />
                 <Navbar />
                 <ProfileNavBar
                     getFavMovies={this.getFavMovies}

@@ -19,29 +19,29 @@ export class AboutUs extends Component {
     render() {
         return (
             <div >
-
+                <br /> <br />
                 <Navbar />
 
 
-                <div style={{ display: "flex", flexWrap: "wrap",justifyContent:"center",marginBottom:'20px' }}>
+                <div  style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: '20px' }}>
                     {this.state.aboutus.map(((item) => {
                         return (
-                            <CardGroup style={{margin:'10px'}}>
-                                    <Card >
-                                        <Card.Body  style={{ height:'320px',marginBottom:'10px' }} className="cardBoody">
-                                            <Card.Img  style={{  height:'320px', margin:'0px',padding:'0px'}} className="cardImg" variant="top" src={item.imgUrl} alt={item.name} />
-                                        </Card.Body>
-                                        <Card.Title className="cardText">{item.name}</Card.Title>
-                                        <Card.Text className="cardText">
-                                           
-                                            <a href={item.github} class="btn ">< FaGithub><i class="fab fa-github"></i></FaGithub> Github</a>
-                                            <a href={item.linkedIn} class="btn ">< FaLinkedin><i class="fab fa-github"></i> </FaLinkedin> LinkedIn</a>
-                                          
-                                            <Card.Footer>
-                                            <small className="text-muted cardText" style={{color:'#FF616D'}}>{item.title}</small>
+                            <CardGroup  style={{ width:'310px',margin: '10px' }}>
+                                <Card >
+                                    <Card.Body style={{ height: '290px',marginBottom: '10px' }} className="cardBoody">
+                                        <Card.Img style={{ height: '285px', margin: '0px', padding: '0px' }} className="cardImg" variant="top" src={item.imgUrl} alt={item.name} />
+                                    </Card.Body>
+                                    <Card.Title className="cardText">{item.name}</Card.Title>
+                                    <Card.Text className="cardText">
+
+                                        <a href={item.github} class="btn ">< FaGithub><i class="fab fa-github"></i></FaGithub> Github</a>
+                                        <a href={item.linkedIn} class="btn ">< FaLinkedin><i class="fab fa-github"></i> </FaLinkedin> LinkedIn</a>
+
+                                        <Card.Footer>
+                                            <small className="text-muted cardText" style={{ color: '#FF616D' }}>{item.title}</small>
                                         </Card.Footer>
-                                        </Card.Text>
-                                    </Card>
+                                    </Card.Text>
+                                </Card>
                             </CardGroup>
                         )
                     }))}
