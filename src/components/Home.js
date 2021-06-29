@@ -24,7 +24,7 @@ export class Home extends Component {
             searchMovie: [],
             mostPopularMoviesData: [],
             // email: this.props.auth0.user.email,
-           
+
 
         }
     }
@@ -88,9 +88,9 @@ export class Home extends Component {
             console.log('most', response.data);
         }).catch(error => console.log(error))
     }
- 
+
     render() {
-       
+
 
         return (
 
@@ -112,10 +112,8 @@ export class Home extends Component {
 
                 < MovieCard
                     searchMovie={this.state.searchMovie}
-                  
+
                 />
-
-
                 <Footer />
 
             </div>

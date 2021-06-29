@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Nav } from 'react-bootstrap';
 import { menuItems } from './MenuItems';
 import './Navbar.css'
 import LoginButton from './LoginButton'
@@ -8,6 +7,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
 import potato from "./assests/potato.png"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 class Navbar extends Component {
@@ -17,11 +17,12 @@ class Navbar extends Component {
         this.setState = ({ clicked: !this.state.clicked })
     }
 
+
     render() {
         const { isAuthenticated } = this.props.auth0;
         return (
             <nav className='NavbarItems'>
-                <img src={potato} style={{ width: "170px" }} />
+                <img src={potato} style={{ width: "170px" }} alt="I am a potato :)" />
                 <div className='menu-icon' onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'} ></i>
                 </div>
@@ -48,11 +49,9 @@ class Navbar extends Component {
                             <LogoutButton />
                         </>
                         :
-                        <LoginButton
-                            createUsers={this.createUsers}
-                        />
+                        <LoginButton />
                 }
-
+                
             </nav>
 
         )
