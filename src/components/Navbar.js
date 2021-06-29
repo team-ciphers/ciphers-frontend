@@ -8,6 +8,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
 import potato from "./assests/potato.png"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 class Navbar extends Component {
@@ -15,6 +16,12 @@ class Navbar extends Component {
     state = { clicked: false }
     handleClick = () => {
         this.setState = ({ clicked: !this.state.clicked })
+    }
+
+    createUsers = () => {
+        let reqBody = { email: this.props.auth0.user.email }
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, reqBody).then(response => {
+        }).catch(error => console.log("User already seeded"))
     }
 
     render() {
