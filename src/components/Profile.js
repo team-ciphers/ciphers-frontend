@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import ProfileNavBar from './ProfileNavBar'
 import FavList from './FavList';
+import ToWatchList from './ToWatchList';
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -13,7 +14,9 @@ export class Profile extends Component {
         super(props);
         this.state = {
             movieList: [],
+            toWatchList: [],
             email: this.props.auth0.user.email,
+            flag1: true,
         }
     }
     componentDidMount = async () => {
@@ -27,7 +30,7 @@ export class Profile extends Component {
         axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             console.log(response.data[0])
             this.setState({
-                movieList: response.data[0].to_watch
+                movieList: response.data[0].favMovie
             })
         }).catch(error => console.log(error))
     }
@@ -35,7 +38,8 @@ export class Profile extends Component {
         e.preventDefault();
         await axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             this.setState({
-                movieList: response.data[0].favMovie
+                movieList: response.data[0].favMovie,
+                flag1:true
             })
         }).catch(error => console.log(error))
     }
@@ -44,10 +48,13 @@ export class Profile extends Component {
         await axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             console.log(response.data[0].to_watch)
             this.setState({
-                movieList: response.data[0].to_watch
+                toWatchList: response.data[0].to_watch,
+                flag1:false
             })
         }).catch(error => console.log(error))
     }
+
+    
     render() {
         return (
             <>
@@ -57,9 +64,15 @@ export class Profile extends Component {
                     getFavMovies={this.getFavMovies}
                     getToWatchList={this.getToWatchList}
                 />
-                <FavList
-                    movieList={this.state.movieList}
-                />
+                {this.state.flag1 ?
+                    <FavList
+                        movieList={this.state.movieList}
+                    />
+                    :
+                    <ToWatchList
+                        toWatchList={this.state.toWatchList}
+                    />
+                }
                 <Footer />
             </>
         )
