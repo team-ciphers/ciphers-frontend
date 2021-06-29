@@ -3,120 +3,50 @@ import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup'
 import Navbar from './Navbar'
 import Footer from './Footer'
-
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import CardColumns from 'react-bootstrap/CardColumns'
-
+import aboutus from './Aboutus.json'
 import './AboutUs.css'
 
 
 export class AboutUs extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            aboutus: aboutus
+        }
+    }
     render() {
         return (
-            <div class="container mx-auto mt-4">
+            <div >
+
                 <Navbar />
-                <CardGroup>
-                    <CardColumns CardColumns style={{ display: "flex", flexWrap: "wrap" }} className="col">
 
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/74907404?v=4" alt="Anas" />
-                            <Card.Body>
-                                <Card.Title>Anas Al-Ramahi</Card.Title>
-                                <Card.Text>
-                                    <a href=" https://github.com/AnasAlRamahi" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/anas-al-ramahi " > < FaLinkedin></FaLinkedin></a>
 
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/79628466?v=4" alt="Salam" />
-                            <Card.Body>
-                                <Card.Title>Salam Mustafa</Card.Title>
-                                <Card.Text>
-                                    <a href="https://github.com/salammustafa728" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/salam-mustafa" > < FaLinkedin></FaLinkedin></a>
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/81703331?v=4" alt="Reem" />
-                            <Card.Body>
-                                <Card.Title>Reem Bani Ali</Card.Title>
-                                <Card.Text>
-                                    <a href="https://github.com/rymbaniali" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/reem-ayasrah-92a92ab5/" > < FaLinkedin></FaLinkedin></a>
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/81149062?v=4" alt="Saify" />
-                            <Card.Body>
-                                <Card.Title>Mohammed Alsaify</Card.Title>
-                                <Card.Text>
-                                    <a href="https://github.com/saify96" >< FaGithub></FaGithub></a>
-                                    <a href=" https://www.linkedin.com/in/mohammadalsaify/" > < FaLinkedin></FaLinkedin></a>
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/81148879?v=4" alt="Majd" />
-                            <Card.Body>
-                                <Card.Title>Majd Khasawneh</Card.Title>
-                                <Card.Text>
+                <div style={{ display: "flex", flexWrap: "wrap",justifyContent:"center",marginBottom:'20px' }}>
+                    {this.state.aboutus.map(((item) => {
+                        return (
+                            <CardGroup style={{margin:'10px'}}>
+                                    <Card >
+                                        <Card.Body  style={{ height:'320px',marginBottom:'10px' }} className="cardBoody">
+                                            <Card.Img  style={{  height:'320px', margin:'0px',padding:'0px'}} className="cardImg" variant="top" src={item.imgUrl} alt={item.name} />
+                                        </Card.Body>
+                                        <Card.Title className="cardText">{item.name}</Card.Title>
+                                        <Card.Text className="cardText">
+                                           
+                                            <a href={item.github} class="btn ">< FaGithub><i class="fab fa-github"></i></FaGithub> Github</a>
+                                            <a href={item.linkedIn} class="btn ">< FaLinkedin><i class="fab fa-github"></i> </FaLinkedin> LinkedIn</a>
+                                          
+                                            <Card.Footer>
+                                            <small className="text-muted cardText" style={{color:'#FF616D'}}>{item.title}</small>
+                                        </Card.Footer>
+                                        </Card.Text>
+                                    </Card>
+                            </CardGroup>
+                        )
+                    }))}
 
-                                    <a href="https://github.com/majdkh97" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/majd-motaz-687695192/" > < FaLinkedin></FaLinkedin></a>
-
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/81565860?v=4" alt="Ruba" />
-                            <Card.Body>
-                                <Card.Title>Ruba Kanaan</Card.Title>
-                                <Card.Text>
-                                    <a href="https://github.com/rubakanaan" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/ruba-kanaan" > < FaLinkedin></FaLinkedin></a>
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                        <Card>
-                            <Card.Img variant="top" src="https://avatars.githubusercontent.com/u/81553898?v=4" alt="Baraa" />
-                            <Card.Body>
-                                <Card.Title>Baraa Alosaily</Card.Title>
-                                <Card.Text>
-
-                                    <a href="https://github.com/baraaAlosaily" >< FaGithub></FaGithub></a>
-                                    <a href="https://www.linkedin.com/in/baraa-al-osaily-732513147" > < FaLinkedin></FaLinkedin></a>
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer>
-                                <small className="text-muted">Full Stack Developer</small>
-                            </Card.Footer>
-                        </Card>
-                    </CardColumns>
-                </CardGroup>
-
+                </div>
                 <Footer />
             </div>
         )
