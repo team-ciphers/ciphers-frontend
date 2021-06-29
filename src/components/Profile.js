@@ -39,7 +39,7 @@ export class Profile extends Component {
         await axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             this.setState({
                 movieList: response.data[0].favMovie,
-                flag1:true
+                flag1: true
             })
         }).catch(error => console.log(error))
     }
@@ -49,12 +49,36 @@ export class Profile extends Component {
             console.log(response.data[0].to_watch)
             this.setState({
                 toWatchList: response.data[0].to_watch,
-                flag1:false
+                flag1: false
             })
         }).catch(error => console.log(error))
     }
 
-    
+    deleteFavMovie = (index) => {
+         axios.delete(`${serverUrl}/usersFav/${index}?email=${this.state.email}`).then(response => {
+            console.log(response)
+            this.setState({
+                movieList: response.data.favMovie,
+            })
+            console.log('response')
+
+    }).catch(error => error.mesaage);
+    }
+
+    deleteToWatchMovie = (index) => {
+        axios.delete(`${serverUrl}/usersWatch/${index}?email=${this.state.email}`).then(response => {
+           console.log(response)
+           this.setState({
+            toWatchList: response.data.to_watch,
+           })
+           console.log('response')
+   }).catch(error => error.mesaage);
+   }
+
+
+  
+
+
     render() {
         return (
             <>
@@ -67,10 +91,12 @@ export class Profile extends Component {
                 {this.state.flag1 ?
                     <FavList
                         movieList={this.state.movieList}
+                        deleteFavMovie={this.deleteFavMovie}
                     />
                     :
                     <ToWatchList
                         toWatchList={this.state.toWatchList}
+                        deleteToWatchMovie={this.deleteToWatchMovie}
                     />
                 }
                 <Footer />
