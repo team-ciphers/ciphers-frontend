@@ -17,6 +17,13 @@ export class Profile extends Component {
         }
     }
     componentDidMount = async () => {
+        const reqBody = {
+            email: this.props.auth0.user.email
+        }
+        console.log(this.props.auth0.user.email);
+        await axios.post(`${serverUrl}/users`, reqBody)
+        console.log('ba3ed');
+
         axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             console.log(response.data[0])
             this.setState({
@@ -44,7 +51,7 @@ export class Profile extends Component {
     render() {
         return (
             <>
-            <br /> <br /> <br /> <br />
+                <br /><br /><br /><br />
                 <Navbar />
                 <ProfileNavBar
                     getFavMovies={this.getFavMovies}

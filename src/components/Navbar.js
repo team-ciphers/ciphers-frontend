@@ -7,6 +7,7 @@ import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
 import potato from "./assests/potato.png"
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 class Navbar extends Component {
@@ -15,6 +16,7 @@ class Navbar extends Component {
     handleClick = () => {
         this.setState = ({ clicked: !this.state.clicked })
     }
+
 
     render() {
         const { isAuthenticated } = this.props.auth0;
@@ -47,9 +49,7 @@ class Navbar extends Component {
                             <LogoutButton />
                         </>
                         :
-                        <LoginButton
-                            createUsers={this.createUsers}
-                        />
+                        <LoginButton />
                 }
                 
             </nav>
