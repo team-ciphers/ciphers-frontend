@@ -37,7 +37,7 @@ export class ModalMovie extends Component {
                 vote_average: this.props.vote_average,
                 overview: this.props.overview,
                 release_date: this.props.release_date,
-                movieId: this.props.movieId,
+                id: this.props.movieId,
             }
         }
         axios.post(`${process.env.REACT_APP_SERVER_URL}/usersWatch`, reqBody).then(res => {
