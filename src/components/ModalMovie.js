@@ -10,7 +10,7 @@ export class ModalMovie extends Component {
     addFavorite = (e) => {
         e.preventDefault();
         const reqBody = {
-            email:this.props.auth0.user.email,
+            email: this.props.auth0.user.email,
             Movie: {
                 original_title: this.props.original_title,
                 poster_path: this.props.poster_path,
@@ -30,14 +30,14 @@ export class ModalMovie extends Component {
     addToWatch = (e) => {
         e.preventDefault();
         const reqBody = {
-            email:this.props.auth0.user.email,
+            email: this.props.auth0.user.email,
             Movie: {
                 original_title: this.props.original_title,
                 poster_path: this.props.poster_path,
                 vote_average: this.props.vote_average,
                 overview: this.props.overview,
                 release_date: this.props.release_date,
-                id: this.props.movieId,
+                movieId: this.props.movieId,
             }
         }
         axios.post(`${process.env.REACT_APP_SERVER_URL}/usersWatch`, reqBody).then(res => {
@@ -47,23 +47,23 @@ export class ModalMovie extends Component {
 
     }
 
-    
+
     render() {
         const { isAuthenticated } = this.props.auth0;
         return (
             <div>
-               
+
                 <Modal size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
-                    <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+                    <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
                     <Modal.Body>
                         <Modal.Title>{this.props.original_title}</Modal.Title>
                         <p>{this.props.vote_average}  </p>
                         <p>{this.props.release_date}  </p>
                         <p>{this.props.overview}  </p>
-                            {isAuthenticated && 
-                            
+                        {isAuthenticated &&
+
                             <div style={{ float: 'right' }}>
-                                
+
                                 <Button onClick={(e) => this.addFavorite(e)} variant="secondary">Add To Favorite</Button>
                                 <Button onClick={(e) => this.addToWatch(e)} variant="secondary">Add To Watch List</Button>
                             </div>
