@@ -20,7 +20,7 @@ class Navbar extends Component {
         const { isAuthenticated } = this.props.auth0;
         return (
             <nav className='NavbarItems'>
-                <img src={potato} style={{ width: "170px" }} />
+                <img src={potato} style={{ width: "170px" }} alt="I am a potato :)" />
                 <div className='menu-icon' onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'} ></i>
                 </div>

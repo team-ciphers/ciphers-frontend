@@ -51,6 +51,7 @@ export class MovieCard extends Component {
         });
         await axios.get(`${process.env.REACT_APP_SERVER_URL}/movieTrailer?movieId=${movieId}`).then(response => {
             console.log('cvbnm,', response.data);
+            console.log(response.data)
             this.setState({
                 url: response.data,
 
@@ -77,7 +78,7 @@ export class MovieCard extends Component {
                 <Row xs={1} md={4} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
-                            <Card className="my-card" onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.id)}>
+                            <Card className="my-card" onClick={() => this.handleShow(item.original_title, item.overview, item.release_date, item.vote_average, item.poster_path, item.movieId)}>
                                 <Card.Body style={{ padding: "0px" }}>
                                     <Card.Img
                                         className="my-img" variant="top" src={item.poster_path} />

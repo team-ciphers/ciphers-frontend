@@ -43,7 +43,7 @@ export class Profile extends Component {
     }
     render() {
         return (
-            <div>
+            <>
                 <Navbar />
                 <ProfileNavBar
                     getFavMovies={this.getFavMovies}
@@ -53,7 +53,7 @@ export class Profile extends Component {
                     movieList={this.state.movieList}
                 />
                 <Footer />
-            </div>
+            </>
         )
     }
 }
