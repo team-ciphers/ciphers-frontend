@@ -1,3 +1,9 @@
+import AboutUs from './AboutUs';
+import Nav from 'react-bootstrap/Nav'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+
 export const menuItems=[
     {
         title:'Home',
@@ -11,7 +17,7 @@ export const menuItems=[
     },
     {
         title:'About Us',
-        url:'#',
+        url:'src/components/AboutUs.js',
         cName:'nav-links'
     }, 
      {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Nav } from 'react-bootstrap';
 import { menuItems } from './MenuItems';
 import './Navbar.css'
 import LoginButton from './LoginButton'
@@ -52,7 +51,7 @@ class Navbar extends Component {
                         :
                         <LoginButton />
                 }
-
+                
             </nav>
 
         )

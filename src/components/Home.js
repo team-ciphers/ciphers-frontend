@@ -114,8 +114,6 @@ export class Home extends Component {
                     searchMovie={this.state.searchMovie}
 
                 />
-
-
                 <Footer />
 
             </div>

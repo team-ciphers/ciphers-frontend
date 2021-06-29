@@ -1,18 +1,19 @@
 :root {
   --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
 }
-/* .Card {
+.Card {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     width: 50px;
     height:100px;
-} */
+}
 body{
   line-height: 3;
-  background-color: #F5E6CA;
+  background: #0c0c0c;
+  font-size: 1.5rem;
 }
 element {
-  height: 320px;
+  height: 315px;
   margin-bottom: 8.5px;
   padding: 0px;
   background: #0c0c0c;
@@ -71,4 +72,8 @@ element {
    font-size: 100%;
     text-decoration: none;
   text-decoration-color: none;
+}
+.cardGrid{
+  display: grid;
+  grid-template-columns: repeat(6,auto);
 }
