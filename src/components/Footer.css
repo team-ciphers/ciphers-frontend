@@ -1,19 +1,35 @@
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .main-footer{
   color: #ffffff;
-  background-color: #444444;
+  background-color:black;
   padding-top: 3em;
   position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
+  height: 15%;
+}
+
+
+
+
+body {
+  color: #ffffff;
+  background-color:black;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 15%;
+
 
 }
 
-.main-footer .col:hover{
+/* .main-footer .col:hover{
   color: red;
   transition: .5s;
-}
+} */
 
 .col-sm:hover{
   color: red;
@@ -23,3 +39,66 @@
   text-align: left;
   margin-left: 200px;
 }
+.webLogo{
+  margin-left: -45%;
+
+}
+.webLogo:hover{
+  color: red;
+  transition: .5s;
+
+}
+.FollowUs{ 
+  margin-left: -48%;
+  margin-top: 2%;
+  font-size: 1.3rem;
+  margin-bottom: 1%;
+
+}
+.FollowUs:hover{ 
+  color: red;
+  transition: .5s;
+}
+.icons{
+  margin-left: -48%;
+  line-height: 1.5;
+}
+p:hover{
+  color: red;
+  transition: .5s;
+
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+h5:hover{
+  color: red;
+  transition: .5s;
+}
+h5{
+  font-size: .65rem;
+}
+.GitHub, .Twitter{
+  margin-left: -2%;
+}
+.copyRigt:hover{
+  color: red;
+  transition: .5s;
+}
+
+ p{
+  box-sizing: border-box;}
+
+  .info{
+    font-size: .9rem;
+    margin-left:  46%;
+    margin-top: -13%;
+    line-height: 1.6;
+  }
+  .ContactUs {
+    font-size: 1.3rem;
+    margin-left:  46%;
+    margin-top: -15%;
+    margin-bottom: 1%;
+  }

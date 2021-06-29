@@ -15,39 +15,58 @@ class Footer extends React.Component {
         <div className="container">
           <div className="row">
             {/* coloum1 */}
-            <div className="col">
-              <h4>Cipher</h4>
-              <ul className="list-unstyled">
+
+            <h3 className="webLogo">Potato Movies</h3>
+            {/* <ul className="list-unstyled">
                 <li>+962789875799</li>
                 <li>Al-Zarqaa</li>
                 <li>Aamman</li>
-              </ul>
-            </div>
+              </ul> */}
+
             {/* coloum2 */}
-            <div className="col">
+            {/* <div className="col">
               <h4>Our Team</h4>
               <ul className="list-unstyled">
                 <li>Anas</li>
                 <li>Majd</li>
                 <li>Safi</li>
               </ul>
-            </div>
+            </div> */}
             {/* coloum3 */}
-            <div className="col">
-              <h4>Contact Us</h4>
-              <ul className="list-unstyled">
-                <li><FaFacebook /> Facebook</li>
-                <li><FaInstagram /> Instegram</li>
-                <li><FaGithub /> GitHub</li>
-                <li><FaTwitter /> Twitter</li>
-              </ul>
+
+            <h4 className="FollowUs">Follow Us</h4>
+            <div className="icons">
+              <p><FaFacebook /> Facebook</p>
+              <p><FaInstagram /> Instegram</p>
+              <p className="GitHub"><FaGithub /> GitHub</p>
+              <p className="Twitter"><FaTwitter /> Twitter</p>
             </div>
+        
+            <p className="ContactUs">Contact Us:</p>
+            <br />
+
+        
+            <div className="info">
+              <p className="ContactUs1">Info@Ciphers.com</p>
+              <p className="ContactUs1"> +962 789875799</p>
+              <p className="ContactUs1"> +966 725864589</p>
+            </div>
+
+
+            <div className="copyRigt" >
+              &copy;copyright 2021
+              Create with ❤️ by Ciphers Team
+            </div>
+
             <div className="row">
-              <p className="col-sm">
-                &Copy;{new Date().getFullYear()} Cipher INC | All right reserved | Terms Of Services | Privacy
-              </p>
+              <h5> Cipher INC | All right reserved
+              </h5>
+              <h5 >  Terms Of Services | Privacy </h5>
 
             </div>
+
+
+
           </div>
         </div>
 
@@ -58,3 +77,5 @@ class Footer extends React.Component {
 }
 
 export default Footer;
+
+
