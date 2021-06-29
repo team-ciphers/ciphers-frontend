@@ -18,11 +18,6 @@ class Navbar extends Component {
         this.setState = ({ clicked: !this.state.clicked })
     }
 
-    createUsers = () => {
-        let reqBody = { email: this.props.auth0.user.email }
-        axios.post(`${process.env.REACT_APP_SERVER_URL}/users`, reqBody).then(response => {
-        }).catch(error => console.log("User already seeded"))
-    }
 
     render() {
         const { isAuthenticated } = this.props.auth0;
@@ -55,9 +50,7 @@ class Navbar extends Component {
                             <LogoutButton />
                         </>
                         :
-                        <LoginButton
-                            createUsers={this.createUsers}
-                        />
+                        <LoginButton />
                 }
 
             </nav>
