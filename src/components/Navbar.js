@@ -5,6 +5,7 @@ import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import { withAuth0 } from "@auth0/auth0-react";
 import Profile from './Profile'
+import potato from "./assests/potato.png"
 import { Link } from 'react-router-dom';
 
 
@@ -19,9 +20,7 @@ class Navbar extends Component {
         const { isAuthenticated } = this.props.auth0;
         return (
             <nav className='NavbarItems'>
-                <h1 className='navbar-logo'>
-                    Ciphers
-                </h1>
+                <img src={potato} style={{ width: "170px" }} />
                 <div className='menu-icon' onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'} ></i>
                 </div>
