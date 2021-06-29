@@ -1,18 +1,15 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-.main-footer{
+
+
+body {
   color: #ffffff;
-  background-color: #444444;
+  background-color:black;
   padding-top: 3em;
   position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
-
-}
-
-.main-footer .col:hover{
-  color: red;
-  transition: .5s;
+  height: 15%;
 }
 
 .col-sm:hover{
@@ -22,4 +19,94 @@
 .main-footer .col{
   text-align: left;
   margin-left: 200px;
+}
+.webLogo{
+  margin-left: -75%;
+
+}
+.webLogo:hover{
+  color: red;
+  transition: .5s;
+
+}
+.FollowUs{ 
+  font-size: 1.5rem;
+  margin-bottom: 1%;
+
+}
+.FollowUs:hover{ 
+  color: red;
+  transition: .5s;
+}
+.icons{
+  line-height: 1;
+  width: 300px;
+  height: 150px;
+}
+p:hover{
+  color: red;
+  transition: .5s;
+
+}
+p {
+  margin-top: 0;
+  margin-bottom: 0rem;
+}
+h5:hover{
+  color: red;
+  transition: .5s;
+}
+h5{
+  font-size: .90rem;
+}
+.GitHub, .Twitter{
+  margin-left: 0%;
+}
+.copyRigt:hover{
+  color: red;
+  transition: .5s;
+}
+.ContactUs1{
+  font-size: 15px;
+}
+ p{
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+  .info{
+    font-size: .9rem;
+    margin-left:  46%;
+    margin-top: -13%;
+    line-height: 1.6;
+  }
+  .ContactUs {
+    font-size: 1.5rem;
+    margin-left: 46%;
+    margin-bottom: 35px;
+    
+
+  }
+  .divContact{
+    width: 358px;
+    height: 101px;
+    margin-left: 915px;
+}
+.divMain{
+  height: 239px;
+  width: 100%;
+}
+.followDiv{
+  width: 200px;
+height: 190px;
+text-align: left;
+position: absolute;
+left: 232px;
+bottom: -14px
+}
+.divCopy{
+width: 600px;
+margin-left: 404px;
+position: relative;
+top: 26px;
 }
