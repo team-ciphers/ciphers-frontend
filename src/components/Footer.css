@@ -25,12 +25,10 @@
   text-align: left;
 }
 .row-term{
-  margin-left: 24%;
   text-align: center;
 }
 .row-term:hover{
   color: red;
-  cursor: pointer;
   }
 
 .list-unstyled li:hover{

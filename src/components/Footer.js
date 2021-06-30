@@ -22,7 +22,7 @@ class Footer extends React.Component {
                 </ul>
               </div>
               <div className="col">
-                <h4>Our Team</h4>
+                {/* <h4>Our Team</h4>
                 <ul className="list-unstyled">
                   <li>Mr.Anas Al-Ramahi</li>
                   <li>Mr.Baraa Al-Osaily</li>
@@ -31,7 +31,7 @@ class Footer extends React.Component {
                   <li>Ms.Reem Bani Ali</li>
                   <li>Ms.Salam Mustafa</li>
                   <li>Ms.Ruba Kanan</li>
-                </ul>
+                </ul> */}
               </div>
               <div className="col">
                 <h4>Contact Us</h4>
@@ -42,9 +42,9 @@ class Footer extends React.Component {
                   <li><FaGithub /> Github</li>
                 </ul>
               </div>
-              <div className="row row-term">&copy; {new Date().getFullYear} Cipher INC.| All right reserved | Terms OF Service | Privacy </div>
             </div>
           </div>
+          <div className="row-term">&copy; {new Date().getFullYear} Cipher INC.| All right reserved | Terms OF Service | Privacy </div>
 
 
         </div>

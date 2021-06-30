@@ -36,6 +36,24 @@ margin: 0%;
 border:1px solid rgba(0, 0, 0, 0.1);
 width: 50rem;
 }
+.Model,p{
+    line-height: 30px;
+    text-align: justify;
+    font-family:'Rubik', sans-serif;
+    padding: 1rem;
+    background-color: #44444481;
+    margin: 0%;
+    border:1px solid rgba(0, 0, 0, 0.1);
+}
+.Model, h3{
+    font-family:'Rubik', sans-serif;   
+    font-size: 40px;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #4444449c;
+    border:1px solid rgba(0, 0, 0, 0.1); 
+    margin: 0;
+}
 /* .my-para:hover{
     line-height: 30px;
     text-align: justify;
@@ -66,3 +84,34 @@ width: 50rem;
     cursor: pointer;
     
     } */
+
+.Modal{
+    
+    padding: 0%;
+    
+}
+
+.my-new-nav{
+    background-color: black;
+    
+    color: #c42e2e;
+    font-family:'Rubik', sans-serif;
+    font-weight: bolder;
+}
+.nav-link{
+    color:#c42e2e ;
+    
+}
+.nav-link:hover{
+    color:#c42e2e ;
+    border:1px solid #ffffff;
+    background-color: #444444;
+    color: white;
+    transition: 00.3s ease;
+}
+.modal-body {
+    background-color: #44444481;
+}
+div.modal-content {
+    margin: 10px;
+}

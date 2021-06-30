@@ -123,9 +123,9 @@ export class ModalMovie extends Component {
     render() {
         return (
             <div>
-                <Modal size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
+                <Modal style={{ margin: "0%" }} size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
                     <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
-                    <Nav variant="tabs" defaultActiveKey="/home">
+                    <Nav className='my-new-nav' variant="tabs" defaultActiveKey="/home">
                         <Nav.Item>
                             <Nav.Link onClick={() => this.props.tabFlagHandle(true)}>Overview</Nav.Link>
                         </Nav.Item>
@@ -135,7 +135,7 @@ export class ModalMovie extends Component {
                     </Nav>
                     <Modal.Body className="Modal">
                         {this.props.tabFlag ?
-                            <OverViewTab
+                            <OverViewTab className="my-para"
                                 original_title={this.props.original_title}
                                 poster_path={this.props.poster_path}
                                 vote_average={this.props.vote_average}
