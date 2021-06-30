@@ -19,13 +19,20 @@ export class MovieCard extends Component {
             movieId: '',
             reviews: [],
             url: '',
+            tabFlag: true
         }
     }
-
-
+    tabFlagHandle = (boolean) => {
+        this.setState({
+            tabFlag: boolean
+        })
+    }
     handleClose = () => this.setState({ show: false });
     handleShow = async (original_title, overview, release_date, vote_average, poster_path, movieId) => {
-
+        this.setState({
+            tabFlag: true,
+            movieId: ''
+        })
         await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${movieId}`).then(response => {
             this.setState({
                 reviews: response.data,
@@ -39,7 +46,6 @@ export class MovieCard extends Component {
             })
         }).catch(error => {
             this.setState({
-
                 show: !this.state.show,
                 original_title: original_title,
                 poster_path: poster_path,
@@ -54,11 +60,8 @@ export class MovieCard extends Component {
             console.log(response.data)
             this.setState({
                 url: response.data,
-
             })
-
         }).catch(error => console.log(error))
-
     };
     render() {
         return (
@@ -73,8 +76,9 @@ export class MovieCard extends Component {
                     release_date={this.state.release_date}
                     reviews={this.state.reviews}
                     movieId={this.state.movieId}
-                    url={this.state.url} />
-
+                    url={this.state.url}
+                    tabFlagHandle={this.tabFlagHandle}
+                    tabFlag={this.state.tabFlag}/>
                 <Row xs={1} md={4} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
@@ -82,10 +86,8 @@ export class MovieCard extends Component {
                                 <Card.Body style={{ padding: "0px" }}>
                                     <Card.Img
                                         className="my-img" variant="top" src={item.poster_path} />
-
                                 </Card.Body>
                                 <Card.Title className="my-title">{item.original_title}</Card.Title>
-
                             </Card>
                         </Col>
                         )

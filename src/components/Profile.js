@@ -26,7 +26,6 @@ export class Profile extends Component {
         console.log(this.props.auth0.user.email);
         await axios.post(`${serverUrl}/users`, reqBody)
         console.log('ba3ed');
-
         axios.get(`${serverUrl}/users?email=${this.state.email}`).then(response => {
             console.log(response.data[0])
             this.setState({
@@ -53,31 +52,25 @@ export class Profile extends Component {
             })
         }).catch(error => console.log(error))
     }
-
     deleteFavMovie = (index) => {
-         axios.delete(`${serverUrl}/usersFav/${index}?email=${this.state.email}`).then(response => {
+        axios.delete(`${serverUrl}/usersFav/${index}?email=${this.state.email}`).then(response => {
             console.log(response)
             this.setState({
                 movieList: response.data.favMovie,
             })
             console.log('response')
 
-    }).catch(error => error.mesaage);
+        }).catch(error => error.mesaage);
     }
-
     deleteToWatchMovie = (index) => {
         axios.delete(`${serverUrl}/usersWatch/${index}?email=${this.state.email}`).then(response => {
-           console.log(response)
-           this.setState({
-            toWatchList: response.data.to_watch,
-           })
-           console.log('response')
-   }).catch(error => error.mesaage);
-   }
-
-
-  
-
+            console.log(response)
+            this.setState({
+                toWatchList: response.data.to_watch,
+            })
+            console.log('response')
+        }).catch(error => error.mesaage);
+    }
 
     render() {
         return (

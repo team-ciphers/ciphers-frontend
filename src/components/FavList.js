@@ -9,7 +9,7 @@ export class FavList extends Component {
         return (
             <div style={{ margin: '20px 10% 20px 10%' }}>
                 <Row xs={1} md={3} className="g-4">
-                    {this.props.movieList.map((item,index) => {
+                    {this.props.movieList.map((item, index) => {
                         return (<Col>
                             <Card >
                                 <Card.Body >
