@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ModalMovie from './ModalMovie'
 import './MovieCard.css'
+import { withAuth0 } from "@auth0/auth0-react";
+
 
 export class MovieCard extends Component {
     constructor(props) {
@@ -19,7 +21,10 @@ export class MovieCard extends Component {
             movieId: '',
             reviews: [],
             url: '',
-            tabFlag: true
+            tabFlag: true,
+            userFavMovies: [],
+            userToWatchMovies: [],
+            buttonHideFlag: false,
         }
     }
     tabFlagHandle = (boolean) => {
@@ -27,11 +32,19 @@ export class MovieCard extends Component {
             tabFlag: boolean
         })
     }
+
+    buttonHideFlagHandle = (boolean) => {
+        this.setState({
+            buttonHideFlag: boolean
+        })
+    }
+
     handleClose = () => this.setState({ show: false });
     handleShow = async (original_title, overview, release_date, vote_average, poster_path, movieId) => {
         this.setState({
             tabFlag: true,
-            movieId: ''
+            movieId: '',
+            buttonHideFlag: false,
         })
         await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReviews?movieId=${movieId}`).then(response => {
             this.setState({
@@ -62,6 +75,39 @@ export class MovieCard extends Component {
                 url: response.data,
             })
         }).catch(error => console.log(error))
+
+        const { isAuthenticated } = this.props.auth0;
+        if (isAuthenticated) {
+            await axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(response => {
+                console.log("userData", response.data[0]);
+                this.setState({
+                    userFavMovies: response.data[0].favMovie,
+                    userToWatchMovies: response.data[0].to_watch,
+                })
+                console.log("favourite movies", this.state.userFavMovies);
+                console.log("to watch movies", this.state.userToWatchMovies);
+            }).catch(error => console.log(error))
+
+            for (let i = 0; i < this.state.userFavMovies.length; i++) {
+                if (this.state.userFavMovies[i].id === movieId) {
+                    this.setState({
+                        buttonHideFlag: true,
+                    })
+                    break;
+                }
+            }
+            // if (!this.state.buttonHideFlag) {
+            for (let i = 0; i < this.state.userToWatchMovies.length; i++) {
+                if (this.state.userToWatchMovies[i].id === movieId) {
+                    this.setState({
+                        buttonHideFlag: true,
+                    })
+                    break;
+                }
+            }
+            console.log("button flag at the beginning ", this.state.buttonHideFlag)
+            // }
+        }
     };
     render() {
         return (
@@ -78,7 +124,10 @@ export class MovieCard extends Component {
                     movieId={this.state.movieId}
                     url={this.state.url}
                     tabFlagHandle={this.tabFlagHandle}
-                    tabFlag={this.state.tabFlag}/>
+                    tabFlag={this.state.tabFlag}
+                    buttonHideFlag={this.state.buttonHideFlag}
+                    buttonHideFlagHandle={this.buttonHideFlagHandle}
+                />
                 <Row xs={1} md={4} className="g-4">
                     {this.props.searchMovie.map(item => {
                         return (<Col>
@@ -98,4 +147,4 @@ export class MovieCard extends Component {
     }
 }
 
-export default MovieCard
+export default withAuth0(MovieCard)
