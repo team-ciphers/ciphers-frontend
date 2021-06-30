@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button'
 export class OverViewTab extends Component {
     render() {
         const { isAuthenticated } = this.props.auth0;
-
         return (
             <div>
                 <h3>{this.props.original_title}</h3>
