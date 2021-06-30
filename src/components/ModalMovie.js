@@ -7,11 +7,11 @@ import { withAuth0 } from "@auth0/auth0-react";
 
 export class ModalMovie extends Component {
 
-    
+
     addFavorite = (e) => {
         e.preventDefault();
-        let flag1=true;
-        let flag2=true;
+        let flag1 = true;
+        let flag2 = true;
         const reqBody = {
             email: this.props.auth0.user.email,
             Movie: {
@@ -24,35 +24,35 @@ export class ModalMovie extends Component {
             }
         }
 
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res=>{
-            for(let i = 0 ;i<res.data[0].to_watch.length;i++ ){
-                if(res.data[0].to_watch[i].id===this.props.movieId){
-                    flag2=false;
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res => {
+            for (let i = 0; i < res.data[0].to_watch.length; i++) {
+                if (res.data[0].to_watch[i].id === this.props.movieId) {
+                    flag2 = false;
                     console.log("Movie already in to watch list");
                     break;
-                }   
+                }
             }
         })
 
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res=>{
-            for(let i = 0 ;i<res.data[0].favMovie.length;i++ ){
-                if(res.data[0].favMovie[i].id===this.props.movieId){
-                    flag1=false;
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res => {
+            for (let i = 0; i < res.data[0].favMovie.length; i++) {
+                if (res.data[0].favMovie[i].id === this.props.movieId) {
+                    flag1 = false;
                     console.log("Movie already in favorite list");
                     break;
-                }   
+                }
             }
-            if(flag1&&flag2){
+            if (flag1 && flag2) {
                 axios.post(`${process.env.REACT_APP_SERVER_URL}/usersFav`, reqBody)
                 console.log("Added to Favorite list");
             }
-        })     
+        })
     }
-    
+
     addToWatch = (e) => {
         e.preventDefault();
-        let flag1=true;
-        let flag2=true;
+        let flag1 = true;
+        let flag2 = true;
         const reqBody = {
             email: this.props.auth0.user.email,
             Movie: {
@@ -65,30 +65,30 @@ export class ModalMovie extends Component {
             }
         }
 
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res=>{
-            for(let i = 0 ;i<res.data[0].favMovie.length;i++ ){
-                if(res.data[0].favMovie[i].id===this.props.movieId){
-                    flag2=false;
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res => {
+            for (let i = 0; i < res.data[0].favMovie.length; i++) {
+                if (res.data[0].favMovie[i].id === this.props.movieId) {
+                    flag2 = false;
                     console.log("Movie already in Favorite list");
                     break;
-                }   
+                }
             }
         })
 
 
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res=>{
-            for(let i = 0 ;i<res.data[0].to_watch.length;i++ ){
-                if(res.data[0].to_watch[i].id===this.props.movieId){
-                    flag1=false;
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users?email=${this.props.auth0.user.email}`).then(res => {
+            for (let i = 0; i < res.data[0].to_watch.length; i++) {
+                if (res.data[0].to_watch[i].id === this.props.movieId) {
+                    flag1 = false;
                     console.log("Movie already in to-Watch list");
                     break;
-                }   
+                }
             }
-            if(flag1&&flag2){
+            if (flag1 && flag2) {
                 axios.post(`${process.env.REACT_APP_SERVER_URL}/usersWatch`, reqBody)
                 console.log("Added to to-Watch list");
             }
-        })     
+        })
     }
 
 
@@ -99,23 +99,23 @@ export class ModalMovie extends Component {
 
                 <Modal size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
                     <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
-                    <Modal.Body>
-                        <Modal.Title>{this.props.original_title}</Modal.Title>
-                        <p>{this.props.vote_average}  </p>
-                        <p>{this.props.release_date}  </p>
-                        <p>{this.props.overview}  </p>
+                    <Modal.Body style={{ padding: "0px" }}>
+                        <Modal.Title className="my-title2">{this.props.original_title}</Modal.Title>
+                        <p className="my-para" >{this.props.vote_average}  </p>
+                        <p className="my-para">{this.props.release_date}  </p>
+                        <p className="my-para">{this.props.overview}  </p>
                         {isAuthenticated &&
 
-                            <div style={{ float: 'right' }}>
+                            <div className="my-title3" style={{ float: 'right' }}>
                                 <Button onClick={(e) => this.addFavorite(e)} variant="secondary">Add To Favorite</Button>
                                 <Button onClick={(e) => this.addToWatch(e)} variant="secondary">Add To Watch List</Button>
-                                
+
                             </div>
                         }
 
 
 
-                    </Modal.Body>   
+                    </Modal.Body>
                 </Modal>
             </div>
         )

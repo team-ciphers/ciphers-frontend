@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 .NavbarItems{
     height:80px;
     display: flex;
@@ -8,9 +11,11 @@
     width: 100%;
     position: fixed;
     top: 0;
-    bottom: 59rem;
-    background-color: black;
+    background-color: 444444;
     z-index: 10;
+    background-color:#000000 ;
+    padding: -10px;
+    margin: 0;
 }
 
 .navbar-logo {
@@ -28,17 +33,18 @@ cursor: pointer;
     width: 70vw;
     justify-content:end ;
     margin-right: 0;
+    padding-top: 1rem;
 
 }
 .nav-links{
     color: rgb(255, 255, 255);
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    padding-bottom: 1rem;
+    padding: 0.7rem 1rem ;
+    font-family:'Rubik', sans-serif;
 }
 .nav-links:hover {
     transition: all 0.3s ease-out;
-    background: #da0000;
+    background: #c42e2e;
     color: #000000;
     transition:250ms;
     border-radius: 4px;

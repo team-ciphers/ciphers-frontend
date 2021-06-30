@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import "./ProfileNavBar.css"
 // import {
 //     Button,
 //     UncontrolledCollapse,
@@ -42,11 +43,11 @@ export class ProfileNavBar extends Component {
                         <Container>
                             <Nav className="me-auto">
                                 <Nav.Link onClick={this.props.getFavMovies} >Favorite Movies</Nav.Link>
+                                <Nav.Link>|</Nav.Link>
                                 <Nav.Link onClick={this.props.getToWatchList} >To Watch List</Nav.Link>
                             </Nav>
                         </Container>
                     </Navbar>
-                    <br />
                 </>
             </div>
         )
