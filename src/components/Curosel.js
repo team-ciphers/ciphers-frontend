@@ -10,7 +10,7 @@ export class Curosel extends Component {
     return (
       <div>
         <Carousel style={{ height: "950px" }}>
-          <Carousel.Item interval={500}>
+          <Carousel.Item>
             <img
               style={{ height: "950px", objectFit: "cover" }}
               className="d-block w-100"
@@ -18,7 +18,7 @@ export class Curosel extends Component {
               alt="First slide"
             />
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item>
             <img
               style={{ height: "950px", objectFit: "cover" }}
               className="d-block w-100"
@@ -26,7 +26,7 @@ export class Curosel extends Component {
               alt="Second slide"
             />
           </Carousel.Item>
-          <Carousel.Item interval={500}>
+          <Carousel.Item>
             <img
               style={{ height: "950px", objectFit: "cover" }}
               className="d-block w-100"
