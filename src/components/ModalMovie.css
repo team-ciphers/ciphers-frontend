@@ -1,13 +1,117 @@
-.Modal {
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+.videoModal{
     
     /* display: flex;
     justify-content: center; */
   color: black;
     
+    
 }
 
-.Modal:hover{
+.my-para{
+line-height: 30px;
+text-align: justify;
+font-family:'Rubik', sans-serif;
+padding: 1rem;
+background-color: #44444481;
+margin: 0%;
+border:1px solid rgba(0, 0, 0, 0.1);
 
-  color: black;
+}
+.my-title2{
+    font-family:'Rubik', sans-serif;   
+    font-size: 40px;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #4444449c;
+    border:1px solid rgba(0, 0, 0, 0.1);
+}
+.my-title3{
+    line-height: 30px;
+text-align: justify;
+font-family:'Rubik', sans-serif;
+padding: 1rem;
+background-color: #44444481;
+margin: 0%;
+border:1px solid rgba(0, 0, 0, 0.1);
+width: 50rem;
+}
+.Model,p{
+    line-height: 30px;
+    text-align: justify;
+    font-family:'Rubik', sans-serif;
+    padding: 1rem;
+    background-color: #44444481;
+    margin: 0%;
+    border:1px solid rgba(0, 0, 0, 0.1);
+}
+.Model, h3{
+    font-family:'Rubik', sans-serif;   
+    font-size: 40px;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #4444449c;
+    border:1px solid rgba(0, 0, 0, 0.1); 
+    margin: 0;
+}
+/* .my-para:hover{
+    line-height: 30px;
+    text-align: justify;
+    font-family:'Rubik', sans-serif;
+    padding: 1rem;
+    background-color: #444444;
+    margin: 0%;
+    border:1px solid #c42e2e;
+    color: #c42e2e;
+    border-radius: 10px;
+    font-weight: 900;
+    transition: 0.3s ease;
+    cursor: pointer;
+    }
+.my-title2:hover{
+    line-height: 30px;
+    text-align: justify;
+    font-family:'Rubik', sans-serif;
+    padding: 1rem;
+    background-color: #444444;
+    margin: 0%;
+    border:1px solid #c42e2e;
+    color: #c42e2e;
+    border-radius: 10px;
+    font-weight: 900;
+    padding: 2rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    
+    } */
 
+.Modal{
+    
+    padding: 0%;
+    
+}
+
+.my-new-nav{
+    background-color: black;
+    
+    color: #c42e2e;
+    font-family:'Rubik', sans-serif;
+    font-weight: bolder;
+}
+.nav-link{
+    color:#c42e2e ;
+    
+}
+.nav-link:hover{
+    color:#c42e2e ;
+    border:1px solid #ffffff;
+    background-color: #444444;
+    color: white;
+    transition: 00.3s ease;
+}
+.modal-body {
+    background-color: #44444481;
+}
+div.modal-content {
+    margin: 10px;
 }

@@ -1,28 +1,27 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 .homeNavbar{
     background-color: #c42e2e;
     height: 70px;
-    bottom: 80px;
     position:relative;
-    padding-left: 37%;
+    padding-left: 35%;
     
 }
 .me-auto-to{
     color: white;
-    font-size:larger;
+    font-size:25px;
     text-align: center;
     padding-left: 50px;
     padding-right:  50px;
+    font-family:'Rubik', sans-serif;
+    
 }
 .me-auto-to:hover{
-    background-color: rgb(0, 0, 0);
     color:#c42e2e ;
-    height: 50px;
-    border-radius: 10px;
     transition: 0.5s;
-    padding-top: 1px;
     font-size: 30px;
+    padding-top: 0.5rem;
+    /* background-color: black; */
+    font-family:'Rubik', sans-serif;
 }
-.Nav.Lik{
 
-}

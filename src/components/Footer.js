@@ -8,43 +8,49 @@ import './Footer.css'
 class Footer extends React.Component {
   render() {
     return (
-      <div className="main-footer">
-        <div className='divMain'>
-          <div >
-            <h3 className="webLogo">Potato Movies</h3>
-            <div className='followDiv'>
-            <div className="icons">
-            <h4 className="FollowUs">Follow Us</h4>
-              <p><FaFacebook /> Facebook</p>
-              <p><FaInstagram /> Instegram</p>
-              <p className="GitHub"><FaGithub /> GitHub</p>
-              <p className="Twitter"><FaTwitter /> Twitter</p>
+      <div>
+        <div className="main-footer">
+          <div className="container2">
+            <div className="row">
+              <div className="col">
+                <h4>Potato Inc.</h4>
+                <ul className="list-unstyled">
+                  <li>www.cipher.com</li>
+                  <li>Cipher@Info.com</li>
+                  <li>+962789875799</li>
+                  <li>+962505558</li>
+                </ul>
+              </div>
+              <div className="col">
+                {/* <h4>Our Team</h4>
+                <ul className="list-unstyled">
+                  <li>Mr.Anas Al-Ramahi</li>
+                  <li>Mr.Baraa Al-Osaily</li>
+                  <li>Mr.Majd Al-Khasawneh</li>
+                  <li>Mr.Mohammad Al-Safi</li>
+                  <li>Ms.Reem Bani Ali</li>
+                  <li>Ms.Salam Mustafa</li>
+                  <li>Ms.Ruba Kanan</li>
+                </ul> */}
+              </div>
+              <div className="col">
+                <h4>Contact Us</h4>
+                <ul className="list-unstyled">
+                  <li><FaFacebook /> Facebook</li>
+                  <li><FaTwitter /> Twitter</li>
+                  <li><FaInstagram></FaInstagram> Instegram</li>
+                  <li><FaGithub /> Github</li>
+                </ul>
+              </div>
             </div>
-            </div>
-            <div className="divContact">
-            <p className="ContactUs">Contact Us:</p>
-            <div className="info">
-              <p className="ContactUs1">Info@Ciphers.com</p>
-              <p className="ContactUs1"> +962 789875799</p>
-              <p className="ContactUs1"> +966 725864589</p>
-            </div>
-            </div>
-            <div className='divCopy'>
-            <div className="copyRigt" >
-              &copy;copyright 2021
-              Create with ❤️ by Ciphers Team
-            </div>
-            <div>
-              <h5> Cipher INC | All right reserved
-              </h5>
-              <h5 >  Terms Of Services | Privacy </h5>
-            </div>
-            </div>
-            
           </div>
-        </div>
+          <div className="row-term">&copy; {new Date().getFullYear} Cipher INC.| All right reserved | Terms OF Service | Privacy </div>
 
+
+        </div>
       </div>
+
+
 
     )
   }

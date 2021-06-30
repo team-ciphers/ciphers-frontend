@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 :root{
-    --primary:#da0000;
+    --primary:#c42e2e;
     
 
 }
@@ -11,14 +12,16 @@
     outline: none;
     cursor: pointer;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     z-index: 2;
+    font-family:'Rubik', sans-serif;
+    font-size: 20px;
 }
 .btn:hover {
     padding: 8px 20px;
     transition: all 0.3s ease-out;
-    background: #171717;
-    color: #DA0037;
+    background: #444444;
+    color: #c42e2e;
     transition:250ms;
 }
 .btn--primary{

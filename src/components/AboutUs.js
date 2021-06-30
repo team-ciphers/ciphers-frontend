@@ -23,15 +23,15 @@ export class AboutUs extends Component {
                 <Navbar />
 
 
-                <div  style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: '20px' }}>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: '20px' }}>
                     {this.state.aboutus.map(((item) => {
                         return (
-                            <CardGroup  style={{ width:'310px',margin: '10px' }}>
+                            <CardGroup style={{ width: '310px', margin: '10px' }}>
                                 <Card >
-                                    <Card.Body style={{ height: '290px',marginBottom: '10px' }} className="cardBoody">
+                                    <Card.Body style={{ height: '290px', marginBottom: '10px' }} className="cardBoody">
                                         <Card.Img style={{ height: '285px', margin: '0px', padding: '0px' }} className="cardImg" variant="top" src={item.imgUrl} alt={item.name} />
                                     </Card.Body>
-                                    <Card.Title className="cardText">{item.name}</Card.Title>
+                                    <Card.Title className="cardText" style={{ fontSize: "1.7rem" }}>{item.name}</Card.Title>
                                     <Card.Text className="cardText">
 
                                         <a href={item.github} class="btn ">< FaGithub><i class="fab fa-github"></i></FaGithub> Github</a>

@@ -16,6 +16,8 @@
     transition: all 0.3s ease-out;
     outline: none;
     cursor: pointer;
+    position: relative;
+    bottom: 30%;
     
 }
 

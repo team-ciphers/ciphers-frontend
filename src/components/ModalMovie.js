@@ -98,20 +98,20 @@ export class ModalMovie extends Component {
             movieId: this.props.movieId,
             review: { email: this.props.auth0.user.email, text: e.target.review.value }
         }
-        console.log('reqBody',reqBody);
+        console.log('reqBody', reqBody);
 
         await axios.post(`${process.env.REACT_APP_SERVER_URL}/userReview`, reqBody).then(response => {
             this.setState({
                 reviewsList: response.data[0].reviews
             })
-            console.log('response',response.data[0].reviews);
+            console.log('response', response.data[0].reviews);
 
         }).catch(error => console.log(error))
     }
     getReview = async (e) => {
         e.preventDefault();
         this.setState({
-            reviewsList:[]
+            reviewsList: []
         })
         this.props.tabFlagHandle(false);
         await axios.get(`${process.env.REACT_APP_SERVER_URL}/userReview?movieId=${this.props.movieId}`).then(response => {
@@ -123,19 +123,19 @@ export class ModalMovie extends Component {
     render() {
         return (
             <div>
-                <Modal size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
+                <Modal style={{ margin: "0%" }} size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
                     <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
-                    <Nav variant="tabs" defaultActiveKey="/home">
+                    <Nav className='my-new-nav' variant="tabs" defaultActiveKey="/home">
                         <Nav.Item>
-                            <Nav.Link onClick={()=>this.props.tabFlagHandle(true)}>Overview</Nav.Link>
+                            <Nav.Link onClick={() => this.props.tabFlagHandle(true)}>Overview</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link onClick={(e)=>this.getReview(e)}>Reviews</Nav.Link>
+                            <Nav.Link onClick={(e) => this.getReview(e)}>Reviews</Nav.Link>
                         </Nav.Item>
                     </Nav>
                     <Modal.Body className="Modal">
                         {this.props.tabFlag ?
-                            <OverViewTab
+                            <OverViewTab className="my-para"
                                 original_title={this.props.original_title}
                                 poster_path={this.props.poster_path}
                                 vote_average={this.props.vote_average}
@@ -145,10 +145,10 @@ export class ModalMovie extends Component {
                                 addFavorite={this.addFavorite}
                             />
                             :
-                            <Reviews 
-                            reviewsList={this.state.reviewsList}
-                            createReview={this.createReview}
-                            getReview={this.getReview}
+                            <Reviews
+                                reviewsList={this.state.reviewsList}
+                                createReview={this.createReview}
+                                getReview={this.getReview}
                             />}
                     </Modal.Body>
                 </Modal>
