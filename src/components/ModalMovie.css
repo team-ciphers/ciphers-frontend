@@ -31,7 +31,6 @@ border:1px solid rgba(0, 0, 0, 0.1);
 text-align: justify;
 font-family:'Rubik', sans-serif;
 padding: 1rem;
-background-color: #44444481;
 margin: 0%;
 border:1px solid rgba(0, 0, 0, 0.1);
 width: 50rem;
@@ -41,7 +40,6 @@ width: 50rem;
     text-align: justify;
     font-family:'Rubik', sans-serif;
     padding: 1rem;
-    background-color: #44444481;
     margin: 0%;
     border:1px solid rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +48,6 @@ width: 50rem;
     font-size: 40px;
     font-weight: bold;
     padding: 1rem;
-    background-color: #4444449c;
     border:1px solid rgba(0, 0, 0, 0.1); 
     margin: 0;
 }
@@ -102,6 +99,11 @@ width: 50rem;
     color:#c42e2e ;
     
 }
+
+.nav-link:focus{
+    color: #c42e2e;
+}
+
 .nav-link:hover{
     color:#c42e2e ;
     border:1px solid #ffffff;
@@ -110,8 +112,9 @@ width: 50rem;
     transition: 00.3s ease;
 }
 .modal-body {
-    background-color: #44444481;
+    background-color: white;
 }
 div.modal-content {
     margin: 10px;
 }
+

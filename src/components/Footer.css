@@ -4,7 +4,6 @@
 .main-footer{
   text-align: center;
   font-size: 15px;
-  margin-top: 10rem;
   line-height: 40px;
   background-color:#444444 ;
   color: white;
@@ -27,16 +26,19 @@
 .row-term{
   text-align: center;
 }
-.row-term:hover{
-  color: red;
-  }
 
 .list-unstyled li:hover{
 color: red;
 cursor: pointer;
 }
 
-.col h4:hover{
-  color: red;
-  cursor: pointer;
-  }
+.ingredientFooter{
+  height: 100px;
+  background-color: red;
+  background-image:
+    linear-gradient(
+      to bottom,
+      #212529,
+      #444444 100%
+    );
+}

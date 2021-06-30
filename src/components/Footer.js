@@ -9,6 +9,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div>
+        <section className="ingredientFooter"></section>
         <div className="main-footer">
           <div className="container2">
             <div className="row">
@@ -44,7 +45,7 @@ class Footer extends React.Component {
               </div>
             </div>
           </div>
-          <div className="row-term">&copy; {new Date().getFullYear} Cipher INC.| All right reserved | Terms OF Service | Privacy </div>
+          <div>&copy; {new Date().getFullYear} Cipher INC.| All right reserved | Terms OF Service | Privacy </div>
 
 
         </div>

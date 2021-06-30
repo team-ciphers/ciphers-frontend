@@ -33,7 +33,6 @@ export class ModalMovie extends Component {
             for (let i = 0; i < res.data[0].to_watch.length; i++) {
                 if (res.data[0].to_watch[i].id === this.props.movieId) {
                     flag2 = false;
-                    console.log("Movie already in to watch list");
                     break;
                 }
             }
@@ -42,15 +41,14 @@ export class ModalMovie extends Component {
             for (let i = 0; i < res.data[0].favMovie.length; i++) {
                 if (res.data[0].favMovie[i].id === this.props.movieId) {
                     flag1 = false;
-                    console.log("Movie already in favorite list");
                     break;
                 }
             }
             if (flag1 && flag2) {
                 axios.post(`${process.env.REACT_APP_SERVER_URL}/usersFav`, reqBody)
-                console.log("Added to Favorite list");
             }
         })
+        this.props.buttonHideFlagHandle(true);
     }
     addToWatch = (e) => {
         e.preventDefault();
@@ -80,32 +78,26 @@ export class ModalMovie extends Component {
             for (let i = 0; i < res.data[0].to_watch.length; i++) {
                 if (res.data[0].to_watch[i].id === this.props.movieId) {
                     flag1 = false;
-                    console.log("Movie already in to-Watch list");
                     break;
                 }
             }
             if (flag1 && flag2) {
                 axios.post(`${process.env.REACT_APP_SERVER_URL}/usersWatch`, reqBody)
-                console.log("Added to to-Watch list");
             }
         })
+        this.props.buttonHideFlagHandle(true);
     }
     createReview = async (e) => {
         e.preventDefault();
-        console.log("1");
-
         const reqBody = {
             movieId: this.props.movieId,
             review: { email: this.props.auth0.user.email, text: e.target.review.value }
         }
-        console.log('reqBody', reqBody);
 
         await axios.post(`${process.env.REACT_APP_SERVER_URL}/userReview`, reqBody).then(response => {
             this.setState({
                 reviewsList: response.data[0].reviews
             })
-            console.log('response', response.data[0].reviews);
-
         }).catch(error => console.log(error))
     }
     getReview = async (e) => {
@@ -125,7 +117,7 @@ export class ModalMovie extends Component {
             <div>
                 <Modal style={{ margin: "0%" }} size={'lg'} show={this.props.show} onHide={this.props.handleClose} >
                     <iframe width="100%" height="500" src={this.props.url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowFullScreen></iframe>
-                    <Nav className='my-new-nav' variant="tabs" defaultActiveKey="/home">
+                    <Nav className='my-new-nav' defaultActiveKey="/home">
                         <Nav.Item>
                             <Nav.Link onClick={() => this.props.tabFlagHandle(true)}>Overview</Nav.Link>
                         </Nav.Item>
@@ -143,6 +135,7 @@ export class ModalMovie extends Component {
                                 release_date={this.props.release_date}
                                 addToWatch={this.addToWatch}
                                 addFavorite={this.addFavorite}
+                                buttonHideFlag={this.props.buttonHideFlag}
                             />
                             :
                             <Reviews

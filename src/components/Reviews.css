@@ -1,0 +1,36 @@
+.reviewBox {
+    color: black;
+}
+
+.reviewBox>h3{
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.reviewBox>p{
+    border: none;
+
+}
+
+.reviewDiv{
+    max-height: 500px;
+    overflow-y: scroll;
+    clear: both;
+}
+
+.reviewForm{
+    padding: 0 20px 0 20px;
+    margin: 0;
+}
+
+.reviewButton{
+    border-color: black;
+    float:right;
+}
+
+.reviewButton:hover{
+    color: white;
+    border-color: black;
+}

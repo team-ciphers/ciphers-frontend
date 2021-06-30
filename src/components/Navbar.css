@@ -42,6 +42,7 @@ cursor: pointer;
     padding: 0.7rem 1rem ;
     font-family:'Rubik', sans-serif;
 }
+
 .nav-links:hover {
     transition: all 0.3s ease-out;
     background: #c42e2e;
